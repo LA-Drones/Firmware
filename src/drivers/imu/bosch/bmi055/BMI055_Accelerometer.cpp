@@ -315,7 +315,7 @@ int BMI055_Accelerometer::DataReadyInterruptCallback(int irq, void *context, voi
 
 void BMI055_Accelerometer::DataReady()
 {
-	uint8_t expected = 0;
+	uint32_t expected = 0;
 
 	if (_drdy_fifo_read_samples.compare_exchange(&expected, _fifo_accel_samples)) {
 		ScheduleNow();

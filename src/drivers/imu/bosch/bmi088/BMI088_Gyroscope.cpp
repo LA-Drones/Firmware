@@ -321,7 +321,7 @@ int BMI088_Gyroscope::DataReadyInterruptCallback(int irq, void *context, void *a
 
 void BMI088_Gyroscope::DataReady()
 {
-	uint8_t expected = 0;
+	uint32_t expected = 0;
 
 	if (_drdy_fifo_read_samples.compare_exchange(&expected, _fifo_gyro_samples)) {
 		ScheduleNow();

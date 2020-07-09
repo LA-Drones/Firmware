@@ -105,7 +105,7 @@ private:
 	perf_counter_t _fifo_reset_perf{perf_alloc(PC_COUNT, MODULE_NAME"_gyro: FIFO reset")};
 	perf_counter_t _drdy_interval_perf{nullptr};
 
-	uint8_t _fifo_gyro_samples{static_cast<uint8_t>(_fifo_empty_interval_us / (1000000 / GYRO_RATE))};
+	uint32_t _fifo_gyro_samples{static_cast<uint32_t>(_fifo_empty_interval_us / (1000000 / GYRO_RATE))};
 
 	uint8_t _checked_register{0};
 	static constexpr uint8_t size_register_cfg{8};

@@ -442,7 +442,7 @@ int ICM20948::DataReadyInterruptCallback(int irq, void *context, void *arg)
 
 void ICM20948::DataReady()
 {
-	uint8_t expected = 0;
+	uint32_t expected = 0;
 
 	// at least the required number of samples in the FIFO
 	if (((_drdy_count.fetch_add(1) + 1) >= _fifo_gyro_samples)
